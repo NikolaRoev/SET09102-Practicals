@@ -2,8 +2,7 @@
 using Test.Data;
 using Test.Views;
 
-namespace Test
-{
+namespace Test {
     public static class MauiProgram {
         public static MauiApp CreateMauiApp() {
             var builder = MauiApp.CreateBuilder();
@@ -18,7 +17,7 @@ namespace Test
             builder.Services.AddTransient<RolePage>();
 
 #if DEBUG
-		    builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

@@ -16,7 +16,7 @@
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.test</ApplicationId>
-		<ApplicationIdGuid>c345fccf-8357-4c29-a03f-0a80f5ed4b30</ApplicationIdGuid>
+		<ApplicationIdGuid>350a711f-ae07-4a33-b40e-af688b54488e</ApplicationIdGuid>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -55,19 +55,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\RolePage.xaml.cs">
-	    <DependentUpon>RolePage.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\MainPage.xaml.cs">
-	    <DependentUpon>MainPage.xaml</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="Views\RolePage.xaml">
+	  <MauiXaml Update="Views\MainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\MainPage.xaml">
+	  <MauiXaml Update="Views\RolePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
