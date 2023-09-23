@@ -13,6 +13,11 @@ namespace Test.Data
             DatabaseConnection.CreateTableAsync<Role>().Wait();
         }
 
+        public Database(string path) {
+            DatabaseConnection = new SQLiteAsyncConnection(path, Constants.Flags);
+            DatabaseConnection.CreateTableAsync<Role>().Wait();
+        }
+
         public async Task<List<Role>> GetAll()
         {
             return await DatabaseConnection.Table<Role>().ToListAsync();
