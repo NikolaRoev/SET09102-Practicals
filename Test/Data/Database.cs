@@ -1,14 +1,12 @@
 ﻿using SQLite;
 using Test.Models;
 
-namespace Test.Data
-{
-    public class Database
-    {
+namespace Test.Data {
+
+    public class Database {
         SQLiteAsyncConnection DatabaseConnection;
 
-        public Database()
-        {
+        public Database() {
             DatabaseConnection = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
             DatabaseConnection.CreateTableAsync<Role>().Wait();
         }
@@ -18,22 +16,20 @@ namespace Test.Data
             DatabaseConnection.CreateTableAsync<Role>().Wait();
         }
 
-        public async Task<List<Role>> GetAll()
-        {
-            return await DatabaseConnection.Table<Role>().ToListAsync();
+        public async Task<List<T>> GetAll<T>() where T : new() {
+            return await DatabaseConnection.Table<T>().ToListAsync();
         }
 
-        public async Task<int> AddItem(Role item)
-        {
-            if (item.ID != 0)
+        public async Task<int> AddItem<T>(T item) {
+            if ((int)item.GetType().GetProperty("ID").GetValue(item) != 0)
                 return await DatabaseConnection.UpdateAsync(item);
             else
                 return await DatabaseConnection.InsertAsync(item);
         }
 
-        public async Task<int> DeleteItem(Role item)
-        {
+        public async Task<int> DeleteItem<T>(T item) {
             return await DatabaseConnection.DeleteAsync(item);
         }
     }
+
 }

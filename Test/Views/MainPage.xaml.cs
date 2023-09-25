@@ -19,7 +19,7 @@ public partial class MainPage : ContentPage
     protected override async void OnNavigatedTo(NavigatedToEventArgs args)
     {
         base.OnNavigatedTo(args);
-        var items = await database.GetAll();
+        var items = await database.GetAll<Role>();
         MainThread.BeginInvokeOnMainThread(() =>
         {
             Items.Clear();

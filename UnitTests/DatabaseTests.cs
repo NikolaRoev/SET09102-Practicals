@@ -18,7 +18,7 @@ namespace UnitTests {
         [TestMethod]
         public async Task CanAddRole() {
             await Database.AddItem(role);
-            var items = await Database.GetAll();
+            var items = await Database.GetAll<Role>();
             Assert.AreEqual(role.Name, items.First().Name);
         }
 
@@ -26,7 +26,7 @@ namespace UnitTests {
         public async Task CanRemoveRole() {
             await Database.AddItem(role);
             await Database.DeleteItem(role);
-            var items = await Database.GetAll();
+            var items = await Database.GetAll<Role>();
             Assert.AreEqual(0, items.Count);
         }
 
@@ -34,11 +34,11 @@ namespace UnitTests {
         public async Task CanChangeRole() {
             await Database.AddItem(role);
 
-            var items = await Database.GetAll();
+            var items = await Database.GetAll<Role>();
             items.First().Name = "changed role";
             await Database.AddItem(items.First());
 
-            items = await Database.GetAll();
+            items = await Database.GetAll<Role>();
 
             Assert.AreEqual(1, items.Count);
             Assert.AreEqual("changed role", items.First().Name);
