@@ -3,16 +3,28 @@ using Test.Models;
 
 namespace Test.Data {
 
+    /*!
+     * The database class for the application.
+     */
     public class Database {
         SQLiteAsyncConnection DatabaseConnection;
 
-        public Database() {
-            DatabaseConnection = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
-            DatabaseConnection.CreateTableAsync<Role>().Wait();
-        }
+        /*!
+         * Default constructor. Creates the production database used by the application.
+         */
+        public Database() : this("database.db3") {}
 
+        /*!
+         * Creates a database and all the needed tables.
+         * @param path (string) The path to the database file.
+         */
         public Database(string path) {
-            DatabaseConnection = new SQLiteAsyncConnection(path, Constants.Flags);
+            DatabaseConnection = new SQLiteAsyncConnection(
+                path,
+                SQLite.SQLiteOpenFlags.ReadWrite |
+                SQLite.SQLiteOpenFlags.Create |
+                SQLite.SQLiteOpenFlags.SharedCache
+            );
             DatabaseConnection.CreateTableAsync<Role>().Wait();
         }
 
@@ -20,6 +32,12 @@ namespace Test.Data {
             return await DatabaseConnection.Table<T>().ToListAsync();
         }
 
+        /*!
+         * Add or update an item to its specific table. The item must have the 'ID' property.
+         * If the item needs to be added set the ID to 0, if the item needs to be updated set the ID to greater than 0.
+         * @param item (T) The generic item to add or update.
+         * @return The number of rows updated.
+         */
         public async Task<int> AddItem<T>(T item) {
             if ((int)item.GetType().GetProperty("ID").GetValue(item) != 0)
                 return await DatabaseConnection.UpdateAsync(item);
