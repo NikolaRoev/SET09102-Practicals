@@ -1,0 +1,71 @@
+\doxysection{Test.\+Data.\+Database Class Reference}
+\hypertarget{class_test_1_1_data_1_1_database}{}\label{class_test_1_1_data_1_1_database}\index{Test.Data.Database@{Test.Data.Database}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_test_1_1_data_1_1_database_a0075c67158ee87650324701ec47069af}{Database}} ()
+\item 
+\mbox{\hyperlink{class_test_1_1_data_1_1_database_a819ed09dd3baba51284bf54e77396c77}{Database}} (string path)
+\item 
+async Task$<$ List$<$ T $>$ $>$ \mbox{\hyperlink{class_test_1_1_data_1_1_database_a7218c41cd087115d7cb1d38ccefa26e9}{Get\+All$<$ T $>$}} ()
+\item 
+async Task$<$ int $>$ \mbox{\hyperlink{class_test_1_1_data_1_1_database_a4e769be9ddde42b9c6de5c96816ce7fb}{Add\+Item$<$ T $>$}} (T item)
+\item 
+\Hypertarget{class_test_1_1_data_1_1_database_a314f3db8d7f113222cb764b648e843f9}\label{class_test_1_1_data_1_1_database_a314f3db8d7f113222cb764b648e843f9} 
+async Task$<$ int $>$ {\bfseries Delete\+Item$<$ T $>$} (T item)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The database class for the application. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_test_1_1_data_1_1_database_a0075c67158ee87650324701ec47069af}\label{class_test_1_1_data_1_1_database_a0075c67158ee87650324701ec47069af} 
+\index{Test.Data.Database@{Test.Data.Database}!Database@{Database}}
+\index{Database@{Database}!Test.Data.Database@{Test.Data.Database}}
+\doxysubsubsection{\texorpdfstring{Database()}{Database()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Test.\+Data.\+Database.\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default constructor. Creates the production database used by the application. \Hypertarget{class_test_1_1_data_1_1_database_a819ed09dd3baba51284bf54e77396c77}\label{class_test_1_1_data_1_1_database_a819ed09dd3baba51284bf54e77396c77} 
+\index{Test.Data.Database@{Test.Data.Database}!Database@{Database}}
+\index{Database@{Database}!Test.Data.Database@{Test.Data.Database}}
+\doxysubsubsection{\texorpdfstring{Database()}{Database()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Test.\+Data.\+Database.\+Database (\begin{DoxyParamCaption}\item[{string}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a database and all the needed tables. 
+\begin{DoxyParams}{Parameters}
+{\em path} & (string) The path to the database file. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_test_1_1_data_1_1_database_a4e769be9ddde42b9c6de5c96816ce7fb}\label{class_test_1_1_data_1_1_database_a4e769be9ddde42b9c6de5c96816ce7fb} 
+\index{Test.Data.Database@{Test.Data.Database}!AddItem$<$ T $>$@{AddItem$<$ T $>$}}
+\index{AddItem$<$ T $>$@{AddItem$<$ T $>$}!Test.Data.Database@{Test.Data.Database}}
+\doxysubsubsection{\texorpdfstring{AddItem$<$ T $>$()}{AddItem< T >()}}
+{\footnotesize\ttfamily async Task$<$ int $>$ Test.\+Data.\+Database.\+Add\+Item$<$ T $>$ (\begin{DoxyParamCaption}\item[{T}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add or update an item to its specific table. The item must have the \textquotesingle{}ID\textquotesingle{} property. If the item needs to be added set the ID to 0, if the item needs to be updated set the ID to greater than 0. 
+\begin{DoxyParams}{Parameters}
+{\em item} & (T) The generic item to add or update. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of rows updated. 
+\end{DoxyReturn}
+\Hypertarget{class_test_1_1_data_1_1_database_a7218c41cd087115d7cb1d38ccefa26e9}\label{class_test_1_1_data_1_1_database_a7218c41cd087115d7cb1d38ccefa26e9} 
+\index{Test.Data.Database@{Test.Data.Database}!GetAll$<$ T $>$@{GetAll$<$ T $>$}}
+\index{GetAll$<$ T $>$@{GetAll$<$ T $>$}!Test.Data.Database@{Test.Data.Database}}
+\doxysubsubsection{\texorpdfstring{GetAll$<$ T $>$()}{GetAll< T >()}}
+{\footnotesize\ttfamily async Task$<$ List$<$ T $>$ $>$ Test.\+Data.\+Database.\+Get\+All$<$ T $>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em new()}]\end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Data/Database.\+cs\end{DoxyCompactItemize}
